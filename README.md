@@ -26,6 +26,8 @@ Converting a primary data type representation of an ID into an ID object is also
 
 ## Results
 
+[Full results are available in here](https://github.com/knifecake/python-id-benchmarks/blob/main/results.json).
+
     ------------------ benchmark 'test_generate': 7 tests -----------------
     Name (time in ns)                 Mean                 StdDev          
     -----------------------------------------------------------------------
@@ -63,3 +65,7 @@ Use GNU `make` to run the benchmark suite with
     make
 
 Alternatively, run `pytest` manually with `pytest bench.py`.
+
+## License
+
+The data and scripts used to perform benchmarks are dedicated to the public domain. Libraries used in this project have their own licenses which are linked to above.

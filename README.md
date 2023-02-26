@@ -26,33 +26,33 @@ Converting a primary data type representation of an ID into an ID object is also
 
 ## Results
 
-    ----------------- benchmark 'test_generate': 7 tests -----------------
-    Name (time in ns)                 Mean                StdDev          
-    ----------------------------------------------------------------------
-    generate[snowflake]           510.3674 (1.0)         34.7764 (1.0)    
-    generate[cyksuid]             703.0988 (1.38)       134.8331 (3.88)   
-    generate[python-ulid]       1,782.9683 (3.49)       310.6836 (8.93)   
-    generate[uuid4]             2,048.1680 (4.01)       148.8192 (4.28)   
-    generate[timeflake]         3,011.9192 (5.90)       845.7420 (24.32)  
-    generate[svix]              3,846.1195 (7.54)       322.3794 (9.27)   
-    generate[cuid2]           320,325.8478 (627.64)   4,523.1247 (130.06) 
-    ----------------------------------------------------------------------
+    ------------------ benchmark 'test_generate': 7 tests -----------------
+    Name (time in ns)                 Mean                 StdDev          
+    -----------------------------------------------------------------------
+    generate[snowflake]           636.7661 (1.0)         779.1200 (1.0)    
+    generate[cyksuid]             791.9977 (1.24)      2,900.1399 (3.72)   
+    generate[python-ulid]       1,960.5808 (3.08)      2,636.9567 (3.38)   
+    generate[uuid4]             2,320.8571 (3.64)      3,943.6629 (5.06)   
+    generate[timeflake]         3,531.1497 (5.55)      6,503.3901 (8.35)   
+    generate[svix]              4,447.4623 (6.98)      6,877.8612 (8.83)   
+    generate[cuid2]           355,568.9206 (558.40)   95,253.4169 (122.26) 
+    -----------------------------------------------------------------------
 
 The fastest library was `snowflake-id` closely followed by `cyksuid`. The rest of the libraries were within the same order of magnitude, except for `cuid2` which was around 600 times slower.
 
-    ---------------- benchmark 'test_parse': 5 tests ----------------
-    Name (time in ns)            Mean                StdDev          
-    -----------------------------------------------------------------
-    parse[cyksuid]           598.0682 (1.0)        406.8139 (1.03)   
-    parse[uuid4]           1,465.1938 (2.45)       461.9078 (1.17)   
-    parse[snowflake]       1,579.4932 (2.64)       395.6732 (1.0)    
-    parse[timeflake]       4,072.7568 (6.81)       718.6803 (1.82)   
-    parse[svix]           23,996.5575 (40.12)    2,584.3945 (6.53)   
-    -----------------------------------------------------------------
+    ---------------- benchmark 'test_parse': 5 tests -----------------
+    Name (time in ns)            Mean                 StdDev          
+    ------------------------------------------------------------------
+    parse[cyksuid]           543.3401 (1.0)       2,270.7900 (1.0)    
+    parse[uuid4]           1,600.9003 (2.95)      4,166.5666 (1.83)   
+    parse[snowflake]       1,901.3237 (3.50)      3,671.0701 (1.62)   
+    parse[timeflake]       4,377.6101 (8.06)      3,299.7071 (1.45)   
+    parse[svix]           27,368.5353 (50.37)    16,984.4702 (7.48)   
+    ------------------------------------------------------------------
 
 For libraries that allowed serializing and parsing primitive representations, results were very similar to generation.
 
-## Reproducing the experiment.
+## Reproducing the experiment
 
 Measurements were performed with Python 3.11.2 running on Pop!_OS 22.04 LTS (based in Ubuntu / Debian, Linux kernel v6.0.12). Hardware was an MSI Prestige 14 laptop purchased in September 2020 with an Intel(R) Core(TM) i7-10710U CPU with 16GB of RAM.
 
